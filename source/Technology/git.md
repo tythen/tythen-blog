@@ -1,20 +1,26 @@
 [toc]
+## 资源链接
+
+[开源指北git手册](https://oschina.gitee.io/opensource-guide/git_tutorial/Git%20%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/%E5%B8%B8%E7%94%A8%20Git%20%E5%91%BD%E4%BB%A4/#git-%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C)
+
 ## 跑个流程
+
 `修改了本地的文件`  
 `git add [filename]`添加到暂存库  
 `git commit`添加到本地库  
 `git push blog master`把当前master分支传到远程库
 
-
+## 简介
 >git是一个版本管理系统，起初是为了开发linux内核而诞生的，它可以保存更新文件的历史  
-集中式版本控制(SVN)，分布式版本控制(Git)  
-显然这个系统基于数据库(Repository)实现，数据库分为远程和本地两种。平时用手头上的机器在本地数据库上操作就可以了。如果想要公开在本地数据库中修改的内容，把内容上传到远程数据库就可以了。  
-提交：若要把文件或目录的添加和变更保存到数据库，就需要进行提交。
-执行提交后，数据库中会生成上次提交的状态与当前状态的差异记录（也被称为revision）。  
-提交时应附上提交信息，格式：  
+>集中式版本控制(SVN)，分布式版本控制(Git)  
+>显然这个系统基于数据库(Repository)实现，数据库分为远程和本地两种。平时用手头上的机器在本地数据库上操作就可以了。如果想要公开在本地数据库中修改的内容，把内容上传到远程数据库就可以了。  
+>提交：若要把文件或目录的添加和变更保存到数据库，就需要进行提交。
+>执行提交后，数据库中会生成上次提交的状态与当前状态的差异记录（也被称为revision）。  
+>提交时应附上提交信息，格式：  
+>
 >>第1行：提交修改内容的摘要  
-第2行：空行  
-第3行以后：修改的理由
+>第2行：空行  
+>第3行以后：修改的理由
 
 ## git基本配置  
 配置都保存在文件中  
@@ -28,17 +34,18 @@
 `git config --global user.name "tythen"`   
 ` git config --global user.email "tythen@qq.com"`  
 
-### 三种区域
+## 三种区域
+
 工作目录
 暂存区
 资源库  
 要想上传到远程库，首先要用git add .存到暂存区
 
 
-### git的初始化  
+## git的初始化  
 使用`git init`和`git clone [url]`
 
-### 文件的四种状态
+## 文件的四种状态
 版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。
 
 - Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过`git add` 状态变为Staged.
@@ -50,10 +57,10 @@
 - Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified  
   
 
-### 查看文件状态  
+## 查看文件状态  
 `git status [filename]`或者`git status`
 
-### 忽略文件
+## 忽略文件
 有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等
 
 在主目录下建立".gitignore"文件，此文件有如下规则：
@@ -75,10 +82,10 @@
 build/       #忽略build/目录下的所有文件
 doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
 ```
-### SSH操作
+## SSH操作
 
 1. 设置本机绑定SSH公钥，实现免密码登录！（免密码登录，这一步挺重要的，码云是远程仓库，我们是平时工作在本地仓库！)
-2.   
+2.   使用命令 ssh
 ```
 # 进入 C:\Users\Administrator\.ssh 目录
 # 生成公钥
@@ -88,17 +95,19 @@ ssh-keygen
 
 3. 将公钥信息public key 添加到码云、GitHub账户中即可！  
 
-### 远程仓库操作
+## 远程仓库操作
 1. 在GitHub上面创建远程仓库后，会提供一个链接（HTTPS、SSH）用来克隆到本地
 2. 提供的链接太长了，可以创建一个别名
    - 用`git remote -v`查看有哪些别名
    - 用`git remote add [filename] [url]`创建别名
    - 我已经将blog添加为仓库别名
 
+3. 用`git add .`把所有文件添加到暂存库
+4. `git commit -m "message"`把文件提交到本地库
+5. `git push blog master`把master分支同步到远程仓库，别名blog
 
 
-
-
+## git文件操作
 `git commit -m `"提交信息" 提交暂存区文件到本地仓库
 `git commit`进行一次提交到本地仓库   
 `git branch <name>`创建一个分支  
