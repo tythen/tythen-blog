@@ -1,12 +1,18 @@
-git是一个版本管理系统，起初是为了开发linux内核而诞生的，它可以保存更新文件的历史  
+[toc]
+## 跑个流程
+`修改了本地的文件`  
+`git add [filename]`添加到暂存库  
+`git commit`添加到本地库  
+`git push blog master`把当前master分支传到远程库
+
+
+>git是一个版本管理系统，起初是为了开发linux内核而诞生的，它可以保存更新文件的历史  
 集中式版本控制(SVN)，分布式版本控制(Git)  
-
 显然这个系统基于数据库(Repository)实现，数据库分为远程和本地两种。平时用手头上的机器在本地数据库上操作就可以了。如果想要公开在本地数据库中修改的内容，把内容上传到远程数据库就可以了。  
-
 提交：若要把文件或目录的添加和变更保存到数据库，就需要进行提交。
 执行提交后，数据库中会生成上次提交的状态与当前状态的差异记录（也被称为revision）。  
-提交时应附上提交信息，格式  
->第1行：提交修改内容的摘要  
+提交时应附上提交信息，格式：  
+>>第1行：提交修改内容的摘要  
 第2行：空行  
 第3行以后：修改的理由
 
@@ -22,14 +28,14 @@ git是一个版本管理系统，起初是为了开发linux内核而诞生的，
 `git config --global user.name "tythen"`   
 ` git config --global user.email "tythen@qq.com"`  
 
-
+### 三种区域
 工作目录
 暂存区
 资源库  
 要想上传到远程库，首先要用git add .存到暂存区
 
 
-git的初始化  
+### git的初始化  
 使用`git init`和`git clone [url]`
 
 ### 文件的四种状态
@@ -93,8 +99,8 @@ ssh-keygen
 
 
 
-git commit -m "提交信息" 提交暂存区文件到本地仓库
-git commit进行一次提交   
-git branch <name>创建一个分支  
-git checkout <name>切换到另一个分支  
-git checkout -b <name>创建并切换到分支  
+`git commit -m `"提交信息" 提交暂存区文件到本地仓库
+`git commit`进行一次提交到本地仓库   
+`git branch <name>`创建一个分支  
+`git checkout <name>`切换到另一个分支  
+`git checkout -b <name>`创建并切换到分支  
