@@ -9,13 +9,13 @@
 ## 目录：
 
 - ### Course
-  - [概率论及数理统计](source\Course\)
+  - [概率论及数理统计](source/Course/概率论及数理统计.md)
   - **具体数学**
   - 计算机系统组成原理
   - 计算机网络
   - **算法**
 - ### Technology
-  - [git](source\Technology\git.md)
+  - [git](source/Technology/git.md)
   - C++
   - 前端知识
 - ### 我的心灵和成长
