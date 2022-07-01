@@ -1,4 +1,6 @@
 [toc]
+# git使用笔记
+
 ## 资源链接
 
 [开源指北git手册](https://oschina.gitee.io/opensource-guide/git_tutorial/Git%20%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/%E5%B8%B8%E7%94%A8%20Git%20%E5%91%BD%E4%BB%A4/#git-%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C)
@@ -57,10 +59,10 @@
 - Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified  
   
 
-## 查看文件状态  
+### 查看文件状态  
 `git status [filename]`或者`git status`
 
-## 忽略文件
+### 忽略文件
 有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等
 
 在主目录下建立".gitignore"文件，此文件有如下规则：
@@ -108,8 +110,30 @@ ssh-keygen
 
 
 ## git文件操作
-`git commit -m `"提交信息" 提交暂存区文件到本地仓库
-`git commit`进行一次提交到本地仓库   
-`git branch <name>`创建一个分支  
+`git commit -m `"提交信息" 提交暂存区文件到本地仓库  
+`git commit`进行一次提交到本地仓库  
+`git branch <name>`创建一个分支   
 `git checkout <name>`切换到另一个分支  
 `git checkout -b <name>`创建并切换到分支  
+`git log`查看提交记录，提供commit id  
+`git reset --hard <commit id>`回退到某次提交的状态（--hard是重置模式，连log一起重置） 
+
+### 如何参与开源项目
+
+1. 首先将项目的库fork一下，相当于创建了个人账号下的branch
+
+2. 把这个fork后的仓库clone克隆到本地，再把原仓库的地址命名为upstream`git remote add <upstream> <url>`
+
+3. 创建一个你自己的分支，一般是你的id`git check out -b <branch>`
+
+4. 往这个库中添加自己的代码，跑个提交push的流程
+
+5. 创建pull request，base是要被合并的main分支，compare是自己创建的分支
+
+6. 填写pr信息，提交
+
+   - 不能合并：原因是主分支有新的commit，因此本地的版本和他不一致
+
+   - 更新本地版本：`git fetch upstream`（更新上游仓库）`git merge upstream <master\main>`（合并到自己的分支中）
+
+   - 再次提交pr
