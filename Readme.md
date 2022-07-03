@@ -29,9 +29,9 @@
 
 ### Technology
 
----
+#### [Git](source/Technology/git.md)
 
-#### [git](source/Technology/git.md)
+#### [Linux](source/Technology/Linux.md)
 
 #### C++
 
